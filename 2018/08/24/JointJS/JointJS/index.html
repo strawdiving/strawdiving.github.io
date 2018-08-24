@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Mark , Share">
+    <meta name="keyword"  content="Qt,C++,Web">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        JointJS使用入门 - strawdiving的博客 | strawdiving&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Mark , Share </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/header.jpg" />
+        </div>
+        <div class="name">
+            <i>strawdiving</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建基础JointJS图表"><span class="toc-text">创建基础JointJS图表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#step-1-Installation"><span class="toc-text">step 1.  Installation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#step-2-Create-graph-amp-paper"><span class="toc-text">step 2.  Create graph &amp; paper</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#step-3-Create-Elements"><span class="toc-text">step 3.  Create Elements</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Element-Styling-元素样式"><span class="toc-text">Element Styling 元素样式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#step-4-Create-Links-to-Connect-Elements"><span class="toc-text">step 4.  Create Links to Connect Elements</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Link-Styling-链接样式"><span class="toc-text">Link Styling 链接样式</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> Mark , Share </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        JointJS使用入门
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-08-24 11:40:25</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#JointJS" title="JointJS">JointJS</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>JointJS图表库可以让你仅仅依赖JavaScript和SVG，就能为所有现代浏览器创建完全交互式的图表工具。它的MVC（其实更多是MV）架构将graph, element 和 link模型与它们的渲染分离开来，这使得JointJS更易于集成到后端应用程序中。</p>
+<p>JointJS使用Backbone MVC库构建，并使用jQuery和Lodash。</p>
+<p>JointJS中的图表由Graph模型（joint.dia.Graph）表示，您可以在其中添加cells的模型 ——可以是Elements（joint.dia.Element的子类型），也可以是Links（joint.dia.Link的子类型）。为了显示图表，需要将其附加到Paper视图（joint.dia.Paper）。从版本0.6开始，您只需要处理模型，而不用处理视图；paper会从graph模型提供的数据中生成ElementViews和LinkViews。该体系结构如下图所示：</p>
+<p><img src="http://resources.jointjs.com/tutorials/joint/tutorials/images/arch.png" alt=""></p>
+<p>JointJS提供了常见几何形状（如矩形、圆、椭圆）的可视化库，以及几种著名的图表语言（ERD，OrgChart，FSA，UML，PN，DEVS ……）所包含的大量现成组件。JointJS框架的设计注重模块化，这使高级用户可以轻松创建自己的形状并使用自定义插件扩展内置功能。</p>
+<p>Rappid是JointJS的商业版本，提供了许多预制插件，可通过小部件，交互组件和其他形状（如BPMN图）扩展其功能。  </p>
+<h2 id="创建基础JointJS图表"><a href="#创建基础JointJS图表" class="headerlink" title="创建基础JointJS图表"></a>创建基础JointJS图表</h2><p>官网给出的的示例，效果如下：</p>
+<p><img src="/2018/08/24/JointJS/JointJS/helloworld.png" alt=""></p>
+<p>该程序执行JointJS应用程序需要执行的所有操作以生成可视输出：</p>
+<ol>
+<li><strong>包含JointJS及其依赖</strong></li>
+<li><strong>定义一个graph和一个paper</strong></li>
+<li><strong>创建2个矩形elements</strong></li>
+<li><strong>创建一个link来连接elements</strong></li>
+</ol>
+<p>下面，我们一步一步来创建这个基础的JointJS图表。</p>
+<h3 id="step-1-Installation"><a href="#step-1-Installation" class="headerlink" title="step 1.  Installation"></a>step 1.  Installation</h3><p>要运行JointJS应用程序，必须将JointJS库及其依赖项包含在页面的源HTML中。</p>
+<ol>
+<li>方式一：使用CDN，链接到JointJS，jQuery，Lodash和Backbone所需的源文件。</li>
+</ol>
+<p>看官方的例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/jointjs/2.1.0/joint.css"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- content --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"myholder"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- 1.包含JointJS及其依赖（jQuery,lodash,Backbone）--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- dependencies--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/jointjs/2.1.0/joint.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- code --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>方式二：本地安装JointJS。如果已经安装了NPM，运行 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save jointjs</span><br></pre></td></tr></table></figure>
+<p>然后，在生成的node_modules文件夹中的各自文件夹中找到所有必需的源文件。代码段将如下所示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"node_modules/jointjs/dist/joint.css"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- content --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"myholder"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- dependencies --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"node_modules/jquery/dist/jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"node_modules/lodash/index.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"node_modules/backbone/backbone.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"node_modules/jointjs/dist/joint.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- code --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>现在JointJS已经包含在我们的页面中，接下来可以开始构建我们的图表了。</p>
+<h3 id="step-2-Create-graph-amp-paper"><a href="#step-2-Create-graph-amp-paper" class="headerlink" title="step 2.  Create graph &amp; paper"></a>step 2.  Create graph &amp; paper</h3><p><strong>所有有用的JointJS应用程序都需要有graph和paper</strong>。graph包含了对图表的的所有组件的引用，paper负责图表的渲染。</p>
+<p>在code部分，script标签中，创建一个graph对象和一个paper对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- code --&gt;</span><br><span class="line">   &lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">   </span><br><span class="line">       <span class="keyword">var</span> graph = <span class="keyword">new</span> joint.dia.Graph;</span><br><span class="line">   </span><br><span class="line">       <span class="keyword">var</span> paper = <span class="keyword">new</span> joint.dia.Paper(&#123;</span><br><span class="line">           el: <span class="built_in">document</span>.getElementById(<span class="string">'myholder'</span>),</span><br><span class="line">           model: graph,</span><br><span class="line">           width: <span class="number">600</span>,</span><br><span class="line">           height: <span class="number">100</span>,</span><br><span class="line">           gridSize: <span class="number">1</span></span><br><span class="line">       &#125;);</span><br><span class="line">       </span><br><span class="line">       <span class="keyword">var</span> rect = <span class="keyword">new</span> joint.shapes.standard.Rectangle();</span><br><span class="line">       rect.position(<span class="number">100</span>, <span class="number">30</span>);</span><br><span class="line">       rect.resize(<span class="number">100</span>, <span class="number">40</span>);</span><br><span class="line">       rect.attr(&#123;</span><br><span class="line">           body: &#123;</span><br><span class="line">               fill: <span class="string">'blue'</span></span><br><span class="line">           &#125;,</span><br><span class="line">           label: &#123;</span><br><span class="line">               text: <span class="string">'Hello'</span>,</span><br><span class="line">               fill: <span class="string">'white'</span></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;);</span><br><span class="line">       rect.addTo(graph);</span><br><span class="line">   </span><br><span class="line">       <span class="keyword">var</span> rect2 = rect.clone();</span><br><span class="line">       rect2.translate(<span class="number">300</span>, <span class="number">0</span>);</span><br><span class="line">       rect2.attr(<span class="string">'label/text'</span>, <span class="string">'World!'</span>);</span><br><span class="line">       rect2.addTo(graph);</span><br><span class="line">   </span><br><span class="line">       <span class="keyword">var</span> link = <span class="keyword">new</span> joint.shapes.standard.Link();</span><br><span class="line">       link.source(rect);</span><br><span class="line">       link.target(rect2);</span><br><span class="line">       link.addTo(graph);</span><br><span class="line">   &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Graph模型通常在JointJS JavaScript代码的第一行定义。在我们的代码中，我们将对它的引用保存为var graph。为了渲染我们的cells（elements 和 links），我们需要将它们添加到graph中（除非我们添加我们的cells，否则图表是不知道它们的存在的）。在示例中，我们使用addTo（）函数执行将cells添加到graph中，也可以使用graph.addCells（）函数执行此操作。</p>
+<p>通常，paper view在graph定义之后直接指定，我们使用了一个选项对象来创建paper，并将其保存为var paper。在五个选项中，有两个定义了关键的paper属性，这些属性将渲染过的paper一边与我们的HTML关联起来，一边和我们的JointJS数据（element和link模型）关联起来：</p>
+<ul>
+<li>el，paper将要渲染成的HTML元素</li>
+<li>graph，我们想要在paper中渲染呈现的Graph模型</li>
+</ul>
+<p>其他的三个选项指定了paper的表示属性。本例中，包含：</p>
+<ul>
+<li>width和height，渲染的paper的尺寸（以像素为单位）</li>
+<li>gridSize，元素对齐的网格大小。影响元素移动的粒度。</li>
+</ul>
+</li>
+</ol>
+<p>paper还有很多属性，允许自定义几乎所有关于paper渲染的内容。此外，paper还提供了很多函数，可以改变paper的呈现方式。可参考 <a href="http://resources.jointjs.com/demo/paper" target="_blank" rel="noopener">Paper Attributes demo</a>和 <a href="http://resources.jointjs.com/tutorials/joint/tutorials/multiple-papers.html" target="_blank" rel="noopener">Multiple Papers tutorial</a> </p>
+<h3 id="step-3-Create-Elements"><a href="#step-3-Create-Elements" class="headerlink" title="step 3.  Create Elements"></a>step 3.  Create Elements</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- code --&gt;</span><br><span class="line">   &lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"></span><br><span class="line">      <span class="comment">/* 创建graph */</span></span><br><span class="line">   <span class="comment">/* 创建paper */</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment">/* 创建elements */</span></span><br><span class="line">       <span class="keyword">var</span> rect = <span class="keyword">new</span> joint.shapes.standard.Rectangle();</span><br><span class="line">       rect.position(<span class="number">100</span>, <span class="number">30</span>); <span class="comment">//设置元素原点的位置</span></span><br><span class="line">       rect.resize(<span class="number">100</span>, <span class="number">40</span>); <span class="comment">//设置元素的尺寸</span></span><br><span class="line">       rect.attr(&#123;</span><br><span class="line">           body: &#123; <span class="comment">//&lt;rect&gt; SVGElement的选择器</span></span><br><span class="line">               fill: <span class="string">'blue'</span></span><br><span class="line">           &#125;,</span><br><span class="line">           label: &#123; <span class="comment">//&lt;text&gt; SVGElement的选择器</span></span><br><span class="line">               text: <span class="string">'Hello'</span>,</span><br><span class="line">               fill: <span class="string">'white'</span></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;);</span><br><span class="line">       rect.addTo(graph);</span><br><span class="line"></span><br><span class="line">       <span class="keyword">var</span> rect2 = rect.clone(); <span class="comment">//克隆现有元素，包括其位置，尺寸和属性</span></span><br><span class="line">       rect2.translate(<span class="number">300</span>, <span class="number">0</span>); <span class="comment">//将元素沿两个坐标轴移动指定的距离</span></span><br><span class="line">       rect2.attr(<span class="string">'label/text'</span>, <span class="string">'World!'</span>);<span class="comment">// 分配值 ‘World!’给 ‘label/text’</span></span><br><span class="line">       rect2.addTo(graph); <span class="comment">//将元素添加到graph中</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 创建link来连接2个elements */</span></span><br><span class="line">       <span class="keyword">var</span> link = <span class="keyword">new</span> joint.shapes.standard.Link();</span><br><span class="line">       link.source(rect);</span><br><span class="line">       link.target(rect2);</span><br><span class="line">       link.addTo(graph);</span><br><span class="line">   &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在创建了graph和paper之后，我们又创建了2个矩形element以及连接这两个element的link。</p>
+<p>使用element的基本思想：</p>
+<ul>
+<li><strong>首先，通过调用element构造函数来创建一个element</strong></li>
+<li><strong>然后，在element上调用不同的方法来设置其properties属性（position，size，attributes……）</strong></li>
+<li><strong>最后，将设置好的elements添加到graph中</strong></li>
+</ul>
+<p>在本例中，两个elements是 joint.shapes.standard.Rectangle 的实例，JointJS中的标准形状库（standard shape library）中包含了很多现成的element定义（如Ellipse, Embedded Image…等），可以直接使用。高级用户可以通过扩展基本的joint.dia.Element类来自定义elements。</p>
+<h4 id="Element-Styling-元素样式"><a href="#Element-Styling-元素样式" class="headerlink" title="Element Styling 元素样式"></a>Element Styling 元素样式</h4><p>改变element样式的最重要的函数：</p>
+<ul>
+<li>element.attr()——以编程方式将SVG属性直接分配给形状（shape）的markup对应的SVGElements（CSS样式仍可以在此处定义的样式之上使用，并且它们具有更高的优先级）</li>
+</ul>
+<p>当使用一个对象作为参数调用element.attr（）时，对象的keys是对应于形状的markup的SVGElements的选择器；如果只需要改变一个值，你也可以用两个参数调用element.attr（），第一个是“selector / attribute”形式的属性路径，第二个是要分配的值，如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rect2.attr(&apos;label/text&apos;, &apos;World!&apos;);</span><br></pre></td></tr></table></figure>
+<p>JointJS能够处理所有标准SVG属性，但请注意，我们强烈建议大家使用camelCase版本的属性名称以保持一致性，以避免在属性名称键中使用引号。</p>
+<p>本例中使用的 joint.shapes.standard.Rectangle形状定义了2个选择器：</p>
+<ul>
+<li>body，即&lt; rect &gt; SVGElement本身</li>
+<li>label，即shape内的&lt; text &gt; SVGElement</li>
+</ul>
+<p>其他的element有它们自己的选择器名称，详细信息可以参阅joint.shapes.standard文档。</p>
+<p>本例中，为rect元素的body选择器分配了一个 fill 颜色属性，而 label 选择器的 text 内容也设置为’Hello’。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">rect.attr(&#123;</span><br><span class="line">    body: &#123; <span class="comment">// selector for the &lt;rect&gt; SVGElement</span></span><br><span class="line">        fill: <span class="string">'blue'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    label: &#123; <span class="comment">// selector for the &lt;text&gt; SVGElement</span></span><br><span class="line">        text: <span class="string">'Hello'</span>,</span><br><span class="line">        fill: <span class="string">'white'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>rect2元素，label是&lt; text &gt; SVGElement的选择器，text是我们要修改的属性。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rect2.attr(<span class="string">'label/text'</span>, <span class="string">'World!'</span>);<span class="comment">// 分配值‘World!’给‘label/text’</span></span><br></pre></td></tr></table></figure>
+<p>相当于</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rect2.attr(<span class="string">'label'</span>,&#123;<span class="attr">text</span>: <span class="string">'World!'</span>&#125;);</span><br></pre></td></tr></table></figure>
+<p>也相当于</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rect2.attr(&#123;<span class="attr">label</span>: &#123;<span class="attr">text</span>:<span class="string">'World!'</span>&#125;&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="step-4-Create-Links-to-Connect-Elements"><a href="#step-4-Create-Links-to-Connect-Elements" class="headerlink" title="step 4.  Create Links to Connect Elements"></a>step 4.  Create Links to Connect Elements</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> link = <span class="keyword">new</span> joint.shapes.standard.Link();</span><br><span class="line">       link.source(rect);</span><br><span class="line">       link.target(rect2);</span><br><span class="line">       link.addTo(graph);</span><br></pre></td></tr></table></figure>
+<p>JointJS图表的另一个重要的构建快是links。links的使用类似于elements:</p>
+<ul>
+<li><strong>首先，通过调用link的构造函数来创建一个link</strong></li>
+<li><strong>然后，在link上调用不同的方法来设置其properties属性（source &amp; target, vertices, router &amp; connector, attributes, labels…）</strong></li>
+<li><strong>最后，将设置好的link添加到graph中</strong></li>
+</ul>
+<p>在本例中，link是joint.shapes.standard.Link的实例，标准形状库（standard shape library）包含可在文档中使用的其他几种现成的link定义（例如DoubleLink和ShadowLink）。此外，高级用户可以通过扩展基本的joint.dia.Link类来创建自己的link定义。</p>
+<p>本例中展示了两个必需的Link方法：</p>
+<ul>
+<li>link.source()和link.target()——设置了link的source/target。要将link连接到element，将element传递给函数（如示例中所示）。</li>
+</ul>
+<h4 id="Link-Styling-链接样式"><a href="#Link-Styling-链接样式" class="headerlink" title="Link Styling 链接样式"></a>Link Styling 链接样式</h4><p>link样式与element样式类似：</p>
+<ul>
+<li>link.attr()——以编程方式将SVG属性直接分配给形状（shape）的markup对应的SVGElements（CSS样式仍可以在此处定义的样式之上使用，并且它们具有更高的优先级）</li>
+</ul>
+<p>当使用一个对象作为参数调用element.attr（）时，对象的keys是对应于形状的markup的SVGElements的选择器；如果只需要改变一个值，你也可以用两个参数调用element.attr（），第一个是“selector / attribute”形式的属性路径，第二个是要分配的值。</p>
+<p>本例中使用的 joint.shapes.standard.Link形状定义了2个选择器：</p>
+<ul>
+<li>line，即link的可见的&lt; path&gt; SVGElement</li>
+<li>wrapper，line下方的更宽，更透明的&lt; path&gt; SVGElement元素，使link更易于交互</li>
+</ul>
+<p>其他的element有它们自己的选择器名称，详细信息可以参阅joint.shapes.standard文档。</p>
+<p>例如，可以通过改变line选择器上的stroke颜色属性来改变link的颜色：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">link.attr(<span class="string">'line/stroke'</span>, <span class="string">'orange'</span>);</span><br></pre></td></tr></table></figure>
+<p>通过将单个对象参数传递给link.attr可以实现相同的效果：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">link.attr(&#123;</span><br><span class="line">    line: &#123; <span class="comment">// selector for the visible &lt;path&gt; SVGElement</span></span><br><span class="line">        stroke: <span class="string">'orange'</span> <span class="comment">// SVG attribute and value</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>有两个特殊属性用来指定link的箭头： sourceMarker和targetMarker，箭头的“type”可以是任何有效的SVGElement类型，常用的有path和image。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">link.attr(&#123;</span><br><span class="line">    line: &#123;</span><br><span class="line">        sourceMarker: &#123; <span class="comment">// hour hand</span></span><br><span class="line">            <span class="string">'type'</span>: <span class="string">'path'</span>,</span><br><span class="line">            <span class="string">'d'</span>: <span class="string">'M 20 -10 0 0 20 10 Z'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        targetMarker: &#123; <span class="comment">// minute hand</span></span><br><span class="line">            <span class="string">'type'</span>: <span class="string">'path'</span>,</span><br><span class="line">            <span class="string">'stroke'</span>: <span class="string">'green'</span>,</span><br><span class="line">            <span class="string">'stroke-width'</span>: <span class="number">2</span></span><br><span class="line">            <span class="string">'fill'</span>: <span class="string">'yellow'</span>,</span><br><span class="line">            <span class="string">'d'</span>: <span class="string">'M 20 -10 0 0 20 10 Z'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>JointJS还支持Link的：</p>
+<ul>
+<li>vertices—— 用户定义的，link应该在从source到target的途中通过的一系列顶点</li>
+<li>router—— router是一个获取link的vertices顶点数组，并在必要时添加额外的点以创建具有所需特征的route的函数，如正交router等</li>
+<li>connector——负责在peper上渲染link的路径的功能，它采用router提供的route点矩阵，构造一系列SVGPathElement路径数据命令，以创建具有所需特征的路径;</li>
+<li>labels——设置link的labels数组。labels具有markup，attrs和position属性。</li>
+</ul>
+<p>详见官方文档。</p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/qinanhong">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/xiaoanzibeirenzhucele">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/strawdiving">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/www">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/gitment.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: 'JointJS使用入门',
+        owner: 'aircloud',
+        repo: 'hexo-aircloud-blog',
+        oauth: {
+            client_id: 'your-id-created-by-https://github.com/settings/applications/new',
+            client_secret: 'your-secret-created-by-https://github.com/settings/applications/new',
+        },
+    })
+    gitment.render('comment-container')
+</script>
+
+</html>
