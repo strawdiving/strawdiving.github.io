@@ -169,7 +169,7 @@
 </ol>
 <p>model是核心，包含交互式数据及围绕它的大部分逻辑，如验证、转变、计算属性、访问控制等。</p>
 <p>Cell，Element，Link和Graph属于Model，继承关系如下图所示：</p>
-<p><img src="/2018/08/27/JointJS(1)/JointJS(1)/backbone.model.PNG" alt="backbone.model"></p>
+<p><img src="/img/backbone.model.PNG" alt="backbone.model"></p>
 <p>joint.dia.Cell和joint.dia.Graph都继承自Backbone的Model，并添加了各自的附加属性和方法。</p>
 <p>joint.dia.Element和joint.dia.Link都继承自joint.dia.Cell，并添加了一些elements/links特定的属性和方法。joint.shapes在joint.dia.Element和joint.dia.Link的基础上进行扩展来创建自定义形状。</p>
 <h5 id="joint-dia-Cell"><a href="#joint-dia-Cell" class="headerlink" title="joint.dia.Cell"></a>joint.dia.Cell</h5><p>继承自BackBone.Model，图表cells的基本模型。这是一个具有一些附加属性和方法的Backbone Model，具有唯一标识符，每个cell都有一个存储在id属性中的唯一ID。</p>
@@ -207,7 +207,7 @@
 </ol>
 <p>Backbone的View并不是模板本身，却是一些控制类，它们处理模型的表现。</p>
 <p>CellView，ElementView，LinkView和Paper属于View，继承关系如下图所示：</p>
-<p><img src="/2018/08/27/JointJS(1)/JointJS(1)/Backbone.View.png" alt="Backbone.View"></p>
+<p><img src="/img/Backbone.View.png" alt="Backbone.View"></p>
 <p>joint.MVC.View继承并扩展了Backbone.View，包含了JointJS中的视图的基本方法和属性。joint.dia.CellView和joint.dia.Paper都继承自joint.MVC.View。</p>
 <p>joint.dia.Paper是joint.dia.Graph的视图，负责渲染关联的graph中的所有cells。</p>
 <p>joint.dia.CellView是joint.dia.Cell的视图；joint.dia.ElementView和joint.dia.LinkView分别是joint.dia.Element和joint.dia.Link的视图。</p>
@@ -224,7 +224,7 @@
 <li>处理link的pointer事件 ；提供各种处理link的方法（可视化）。</li>
 </ul>
 <h5 id="joint-dia-Paper"><a href="#joint-dia-Paper" class="headerlink" title="joint.dia.Paper"></a>joint.dia.Paper</h5><p>joint.dia.Paper是joint.dia.Graph模型的视图，继承自 joint.mvc.View（继承自Backbone.View），当paper与graph相关联时，paper会确保添加到graph中的所有cells都自动渲染。</p>
-<h4 id="3-Collection"><a href="#3-Collection" class="headerlink" title="3. Collection"></a>3. Collection</h4><p><img src="/2018/08/27/JointJS(1)/JointJS(1)/backbone.collection.PNG" alt="backbone.collection"></p>
+<h4 id="3-Collection"><a href="#3-Collection" class="headerlink" title="3. Collection"></a>3. Collection</h4><p><img src="/img/backbone.collection.PNG" alt="backbone.collection"></p>
 <p><strong>joint.dia.GraphCells</strong>继承自Backbone.Collection，是graph中的cells的有序集合，存储在graph的“cells”属性中。</p>
 <p>Backbone.Collection是models的有序集合，可以绑定“change”事件，以便collection中的任何model被修改时通知。collection中的model触发的任何事件也将直接在collection上触发，允许监听collection中任何model中特定属性的更改。</p>
 <h3 id="其他模块"><a href="#其他模块" class="headerlink" title="其他模块"></a>其他模块</h3><h5 id="joint-dia-attributes"><a href="#joint-dia-attributes" class="headerlink" title="joint.dia.attributes"></a>joint.dia.attributes</h5><p>JointJS中的属性（attributes）定义了如何在element和link views中呈现图形元素(graphics elements)。可以使用所有标准SVG样式属性。</p>
